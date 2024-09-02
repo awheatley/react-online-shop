@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Header from "./components/Header.jsx";
-import Product from "./components/Product.jsx";
+import Product from './components/Product.jsx';
 import Shop from "./components/Shop.jsx";
 import { DUMMY_PRODUCTS } from "./dummy-products.js";
 import { CartContext } from "./store/shopping-cart-context.jsx";
@@ -67,8 +67,10 @@ function App() {
     });
   }
 
+  const cxtValue = { items: shoppingCart.items, addItemToCart: handleAddItemToCart}
+
   return (
-    <CartContext.Provider value={{ items: [] }}>
+    <CartContext.Provider value={cxtValue}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
